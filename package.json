@@ -1,0 +1,21 @@
+{
+  "name": "electroguy-storefront",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev:invoice": "vercel dev",
+    "shopify:info": "shopify store execute --store 5p1011-0z.myshopify.com --query 'query { shop { name id myshopifyDomain } products(first: 5) { nodes { title handle status } } collections(first: 5) { nodes { title handle } } }'",
+    "assets:generate": "node scripts/generate-assets.mjs",
+    "catalog:fetch": "node scripts/fetch-zeek-catalog.mjs",
+    "catalog:transform": "node scripts/transform-zeek-catalog.mjs",
+    "catalog:dry-run": "node scripts/upload-electroguy-products.mjs",
+    "catalog:upload": "node scripts/upload-electroguy-products.mjs --upload",
+    "cleanup:under-1000": "node scripts/delete-products-under-1000.mjs",
+    "cleanup:under-1000:apply": "node scripts/delete-products-under-1000.mjs --apply"
+  },
+  "dependencies": {
+    "@shopify/cli": "^4.3.0",
+    "pdfkit": "^0.15.2",
+    "vercel": "^34.3.0"
+  }
+}

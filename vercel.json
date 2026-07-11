@@ -1,0 +1,13 @@
+{
+  "rewrites": [
+    {
+      "source": "/invoice",
+      "destination": "/invoice-app.html"
+    }
+  ],
+  "functions": {
+    "api/*.mjs": {
+      "maxDuration": 30
+    }
+  }
+}
